@@ -37,35 +37,6 @@ export const articles = [
   }
 ];
 
-export const communityPosts = [
-  {
-    id: 1,
-    author: {
-      name: "Rina S.",
-      title: "Ibu dari 2 anak",
-      avatarUrl: "https://placehold.co/48x48.png",
-    },
-    timestamp: "2 jam lalu",
-    content: "Moms, ada tips buat anak yang lagi GTM (Gerakan Tutup Mulut) ga ya? Anakku usia 1.5 tahun lagi susah makan nih. Udah coba berbagai menu tapi dilepeh terus. Help!",
-    tags: ["Gizi", "Tanya Jawab"],
-    likes: 15,
-    comments: 8,
-  },
-  {
-    id: 2,
-    author: {
-      name: "Fitri A.",
-      title: "Pemerhati Gizi",
-      avatarUrl: "https://placehold.co/48x48.png",
-    },
-    timestamp: "1 hari lalu",
-    content: "Sharing resep MPASI favorit anakku: Bubur Salmon Brokoli. Salmon kaya akan Omega-3 yang bagus buat otak, dan brokoli sumber serat. Cukup kukus semua bahan lalu haluskan. Anakku lahap banget!",
-    tags: ["Resep", "MPASI"],
-    likes: 42,
-    comments: 12,
-  },
-];
-
 export const communityEvents = [
     {
         id: 1,
