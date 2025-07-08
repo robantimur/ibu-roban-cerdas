@@ -9,10 +9,10 @@ export function HeroSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left">
             <h1 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-4">
-              Kesehatan Keluarga di Ujung Jari Anda
+              Menjadi Ibu Cerdas untuk Keluarga Sehat
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto md:mx-0">
-              Dapatkan informasi kesehatan terpercaya, konsultasi AI, dan dukungan komunitas untuk menjaga keluarga Anda tetap sehat dan bahagia.
+              Platform edukasi kesehatan digital yang dirancang khusus untuk para ibu di Roban Timur. Dapatkan informasi terpercaya, tanya jawab dengan AI, dan terhubung dengan komunitas.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Button size="lg" asChild>

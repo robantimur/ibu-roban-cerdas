@@ -7,8 +7,8 @@ import { Toaster } from "@/components/ui/toaster"
 import { AuthProvider } from '@/hooks/use-auth';
 
 export const metadata: Metadata = {
-  title: 'SehatAI Keluarga',
-  description: 'Your trusted partner in family health.',
+  title: 'Ibu Roban Cerdas',
+  description: 'Platform edukasi kesehatan oleh KKN Tim 1 Undip di Roban Timur.',
   icons: {
     icon: '/favicon.ico',
   },

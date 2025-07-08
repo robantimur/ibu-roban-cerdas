@@ -10,7 +10,7 @@ export default function EventsPage() {
       <div className="text-center mb-12">
         <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">Acara Komunitas</h1>
         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-          Ikuti berbagai kegiatan edukatif dan seru bersama komunitas SehatAI Keluarga.
+          Ikuti berbagai kegiatan edukatif dan seru bersama komunitas Ibu Cerdas Roban Timur.
         </p>
       </div>
 

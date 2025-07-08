@@ -40,10 +40,10 @@ export function FeaturesSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Semua yang Anda Butuhkan untuk Keluarga Sehat
+            Semua yang Ibu Cerdas Butuhkan
           </h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Platform kami dirancang untuk memberdayakan Anda dengan alat dan pengetahuan untuk membuat keputusan kesehatan terbaik.
+            Dirancang khusus oleh Mahasiswa KKN Undip untuk memberdayakan para ibu di Roban Timur dengan alat dan pengetahuan kesehatan praktis.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

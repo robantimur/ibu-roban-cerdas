@@ -1,52 +1,29 @@
 import Link from "next/link";
 import { Logo } from "../logo";
-import { Github, Twitter, MessageCircle } from "lucide-react";
+import { Instagram } from "lucide-react";
 
 export function Footer() {
   return (
     <footer className="border-t">
       <div className="container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="flex flex-col gap-4">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex flex-col gap-4 text-center md:text-left">
             <Logo />
-            <p className="text-sm text-muted-foreground">
-              Partner terpercaya Anda untuk kesehatan keluarga, didukung oleh AI.
+            <p className="text-sm text-muted-foreground max-w-xs">
+              Program Kuliah Kerja Nyata (KKN) Tim 1 Kelompok 5 <br/>
+              Universitas Diponegoro di Desa Roban Timur.
             </p>
-            <div className="flex gap-2">
-              <Link href="#" aria-label="Twitter">
-                <Twitter className="h-5 w-5 text-muted-foreground hover:text-primary" />
-              </Link>
-              <Link href="#" aria-label="Github">
-                <Github className="h-5 w-5 text-muted-foreground hover:text-primary" />
-              </Link>
-              <Link href="#" aria-label="Community">
-                <MessageCircle className="h-5 w-5 text-muted-foreground hover:text-primary" />
-              </Link>
-            </div>
           </div>
-          <div className="md:col-start-3 flex flex-col md:flex-row gap-8 md:gap-16">
-            <div>
-              <h4 className="font-medium mb-2">Platform</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="/articles" className="hover:text-primary">Artikel</Link></li>
-                <li><Link href="/community" className="hover:text-primary">Komunitas</Link></li>
-                <li><Link href="/events" className="hover:text-primary">Acara</Link></li>
-                <li><Link href="/dashboard" className="hover:text-primary">Dashboard</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-medium mb-2">Perusahaan</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="#" className="hover:text-primary">Tentang Kami</Link></li>
-                <li><Link href="#" className="hover:text-primary">Karir</Link></li>
-                <li><Link href="#" className="hover:text-primary">Kontak</Link></li>
-                <li><Link href="#" className="hover:text-primary">Kebijakan Privasi</Link></li>
-              </ul>
-            </div>
+          <div className="flex flex-col items-center md:items-end gap-4">
+              <h4 className="font-medium">Hubungi Kami</h4>
+              <Link href="https://www.instagram.com/kkn.dirobantimur" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
+                <Instagram className="h-5 w-5" />
+                @kkn.dirobantimur
+              </Link>
           </div>
         </div>
         <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} SehatAI Keluarga. Semua hak cipta dilindungi.</p>
+          <p>&copy; {new Date().getFullYear()} KKN Tim 1 Undip Roban Timur. Semua hak cipta dilindungi.</p>
         </div>
       </div>
     </footer>

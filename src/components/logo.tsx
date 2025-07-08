@@ -7,7 +7,7 @@ export function Logo({ className }: { className?: string }) {
     <Link href="/" className={cn("flex items-center gap-2", className)}>
       <Stethoscope className="h-6 w-6 text-primary" />
       <span className="text-xl font-bold text-foreground">
-        SehatAI<span className="text-primary"> Keluarga</span>
+        Ibu Roban<span className="text-primary"> Cerdas</span>
       </span>
     </Link>
   );

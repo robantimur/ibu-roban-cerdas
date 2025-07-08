@@ -23,7 +23,7 @@ export default function ArticlesPage() {
       <div className="text-center mb-12">
         <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">Pusat Pengetahuan</h1>
         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-          Temukan artikel, tips, dan panduan terpercaya untuk mendukung kesehatan keluarga Anda.
+          Temukan artikel, tips, dan panduan terpercaya untuk mendukung kesehatan Anda dan keluarga.
         </p>
       </div>
 

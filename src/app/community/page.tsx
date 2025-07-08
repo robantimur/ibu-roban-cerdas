@@ -12,7 +12,7 @@ export default function CommunityPage() {
   return (
     <div className="container mx-auto py-12 px-4">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">Komunitas SehatAI</h1>
+        <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">Komunitas Ibu Cerdas</h1>
         <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
           Terhubung, berbagi, dan belajar bersama para ibu hebat lainnya.
         </p>
