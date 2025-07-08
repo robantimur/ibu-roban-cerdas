@@ -37,7 +37,7 @@ export default function DashboardLayout({
           <DashboardNav />
         </Sidebar>
         <SidebarInset>
-          <div className="p-4 sm:p-6 lg:p-8">{children}</div>
+          {children}
         </SidebarInset>
       </div>
     </SidebarProvider>
