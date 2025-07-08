@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -17,8 +19,16 @@ import {
 } from "@/components/ui/accordion";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { PlusCircle, Trash2 } from "lucide-react";
+import { useAuth } from "@/hooks/use-auth";
 
 export default function ProfilePage() {
+  const { user } = useAuth();
+
+  const getInitials = (name?: string | null) => {
+    if (!name) return "U";
+    return name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+  };
+
   return (
     <div className="space-y-8">
       <div>
@@ -36,11 +46,11 @@ export default function ProfilePage() {
             <CardContent className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="name">Nama Lengkap</Label>
-                <Input id="name" defaultValue="Nama Pengguna" />
+                <Input id="name" defaultValue={user?.displayName || ""} />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" defaultValue="user@example.com" disabled />
+                <Input id="email" type="email" defaultValue={user?.email || ""} disabled />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="location">Lokasi</Label>
@@ -48,7 +58,7 @@ export default function ProfilePage() {
               </div>
             </CardContent>
             <CardFooter>
-              <Button>Simpan Perubahan</Button>
+              <Button>Simpan</Button>
             </CardFooter>
           </Card>
         </div>
@@ -60,10 +70,10 @@ export default function ProfilePage() {
                 </CardHeader>
                 <CardContent className="flex flex-col items-center gap-4">
                     <Avatar className="w-32 h-32">
-                        <AvatarImage src="https://placehold.co/128x128.png" alt="User" data-ai-hint="user avatar" />
-                        <AvatarFallback>U</AvatarFallback>
+                        <AvatarImage src={user?.photoURL || ''} alt={user?.displayName || 'User'} data-ai-hint="user avatar" />
+                        <AvatarFallback>{getInitials(user?.displayName)}</AvatarFallback>
                     </Avatar>
-                    <Button variant="outline">Ubah Foto</Button>
+                    <Button variant="outline">Ganti Foto</Button>
                 </CardContent>
             </Card>
         </div>

@@ -21,13 +21,13 @@ export default function CommunityPage() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-1">
           <Card className="p-4 sticky top-24">
-            <Button className="w-full mb-4"><PlusCircle className="mr-2 h-4 w-4"/> Buat Postingan Baru</Button>
+            <Button className="w-full mb-4"><PlusCircle className="mr-2 h-4 w-4"/> Buat Kiriman Baru</Button>
             <div className="relative mb-4">
               <Input placeholder="Cari di komunitas..." className="pr-10" />
               <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             </div>
             <nav className="flex flex-col gap-1">
-              <Button variant="ghost" className="justify-start">Semua Postingan</Button>
+              <Button variant="ghost" className="justify-start">Semua Kiriman</Button>
               <Button variant="ghost" className="justify-start text-muted-foreground">Gizi & Resep</Button>
               <Button variant="ghost" className="justify-start text-muted-foreground">Tanya Jawab</Button>
               <Button variant="ghost" className="justify-start text-muted-foreground">Kisah Sukses</Button>

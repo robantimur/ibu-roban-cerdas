@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { useActions, useStreamableValue } from "ai/rsc";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,7 +8,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Send, User, Bot, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { aiHealthAssistantForMothers } from "@/ai/flows/health-assistant";
-import { useFormState, useFormStatus } from 'react-dom';
+import { useAuth } from "@/hooks/use-auth";
 
 interface Message {
   role: "user" | "assistant";
@@ -28,6 +27,7 @@ export function ChatPanel() {
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
+  const { user } = useAuth();
 
   const handleSendMessage = async (messageContent?: string) => {
     const content = messageContent || inputValue;
@@ -52,16 +52,24 @@ export function ChatPanel() {
 
   useEffect(() => {
     if (scrollAreaRef.current) {
-      scrollAreaRef.current.scrollTo({
-        top: scrollAreaRef.current.scrollHeight,
-        behavior: "smooth",
-      });
+      const scrollEl = scrollAreaRef.current.querySelector('div');
+      if (scrollEl) {
+        scrollEl.scrollTo({
+          top: scrollEl.scrollHeight,
+          behavior: "smooth",
+        });
+      }
     }
   }, [messages]);
+  
+  const getInitials = (name?: string | null) => {
+    if (!name) return "U";
+    return name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+  };
 
   return (
     <div className="flex flex-col h-full">
-      <ScrollArea className="flex-1 p-4" ref={scrollAreaRef}>
+      <ScrollArea className="flex-1 p-4">
         <div className="space-y-6">
           {messages.length === 0 && (
              <div className="text-center p-8 text-muted-foreground">
@@ -95,7 +103,8 @@ export function ChatPanel() {
               </div>
               {message.role === "user" && (
                 <Avatar className="h-8 w-8">
-                  <AvatarFallback><User /></AvatarFallback>
+                   <AvatarImage src={user?.photoURL || ''} alt={user?.displayName || 'User'} data-ai-hint="user avatar" />
+                   <AvatarFallback>{getInitials(user?.displayName)}</AvatarFallback>
                 </Avatar>
               )}
             </div>

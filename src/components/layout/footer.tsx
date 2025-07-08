@@ -10,7 +10,7 @@ export function Footer() {
           <div className="flex flex-col gap-4">
             <Logo />
             <p className="text-sm text-muted-foreground">
-              Your trusted partner in family health, powered by AI.
+              Partner terpercaya Anda untuk kesehatan keluarga, didukung oleh AI.
             </p>
             <div className="flex gap-2">
               <Link href="#" aria-label="Twitter">
@@ -28,25 +28,25 @@ export function Footer() {
             <div>
               <h4 className="font-medium mb-2">Platform</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="/articles" className="hover:text-primary">Articles</Link></li>
-                <li><Link href="/community" className="hover:text-primary">Community</Link></li>
-                <li><Link href="/events" className="hover:text-primary">Events</Link></li>
+                <li><Link href="/articles" className="hover:text-primary">Artikel</Link></li>
+                <li><Link href="/community" className="hover:text-primary">Komunitas</Link></li>
+                <li><Link href="/events" className="hover:text-primary">Acara</Link></li>
                 <li><Link href="/dashboard" className="hover:text-primary">Dashboard</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-medium mb-2">Company</h4>
+              <h4 className="font-medium mb-2">Perusahaan</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link href="#" className="hover:text-primary">About Us</Link></li>
-                <li><Link href="#" className="hover:text-primary">Careers</Link></li>
-                <li><Link href="#" className="hover:text-primary">Contact</Link></li>
-                <li><Link href="#" className="hover:text-primary">Privacy Policy</Link></li>
+                <li><Link href="#" className="hover:text-primary">Tentang Kami</Link></li>
+                <li><Link href="#" className="hover:text-primary">Karir</Link></li>
+                <li><Link href="#" className="hover:text-primary">Kontak</Link></li>
+                <li><Link href="#" className="hover:text-primary">Kebijakan Privasi</Link></li>
               </ul>
             </div>
           </div>
         </div>
         <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} SehatAI Keluarga. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} SehatAI Keluarga. Semua hak cipta dilindungi.</p>
         </div>
       </div>
     </footer>
