@@ -31,7 +31,7 @@ export function Header() {
               <Sheet>
                 <SheetTrigger asChild>
                   <Button variant="ghost" size="icon">
-                    <Menu className="h-5 w-5" />
+                    <Menu className="h-6 w-6" />
                     <span className="sr-only">Buka Menu</span>
                   </Button>
                 </SheetTrigger>
