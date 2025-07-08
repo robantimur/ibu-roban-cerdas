@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Stethoscope } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Logo } from "../logo";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -23,9 +23,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
         <div className="mr-4 hidden md:flex">
-          <Link href="/" className="mr-6">
-            <Logo />
-          </Link>
+          <Logo className="mr-6" />
           <nav className="flex items-center space-x-6 text-sm font-medium">
             {navLinks.map((link) => (
               <Link
@@ -63,9 +61,7 @@ export function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left" className="pr-0">
-                <Link href="/" className="mb-6 flex items-center">
-                  <Logo />
-                </Link>
+                <Logo className="mb-6" />
                 <div className="flex flex-col space-y-4">
                   {[...navLinks, ...(user ? [{ href: "/dashboard", label: "Dashboard" }] : [])].map((link) => (
                     <Link
@@ -81,9 +77,7 @@ export function Header() {
             </Sheet>
         </div>
          <div className="flex flex-1 justify-center md:hidden">
-             <Link href="/" >
-              <Logo />
-            </Link>
+             <Logo />
         </div>
 
 
