@@ -15,7 +15,7 @@ import { articles } from "@/lib/placeholder-data";
 import { Search } from "lucide-react";
 
 export default function ArticlesPage() {
-  const categories = ["Semua", "Gizi", "Kesehatan Gigi", "Sanitasi", "Tumbuh Kembang"];
+  const categories = ["Semua", "Gizi", "Kesehatan Gigi", "Sanitasi"];
 
   return (
     <div className="container mx-auto py-12 px-4">
