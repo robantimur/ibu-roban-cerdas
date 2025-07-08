@@ -42,11 +42,21 @@ export function Header() {
                       <Logo />
                     </div>
                     <div className="flex flex-col space-y-1 px-4">
-                      {[...navLinks, ...(user ? [{ href: "/dashboard", label: "Dashboard" }] : [])].map((link) => (
+                      {navLinks.map((link) => (
                         <Button variant="ghost" className="justify-start" asChild key={link.href}>
                            <Link href={link.href}>{link.label}</Link>
                         </Button>
                       ))}
+                      {user && (
+                        <>
+                          <Button variant="ghost" className="justify-start" asChild>
+                            <Link href="/dashboard">Dashboard</Link>
+                          </Button>
+                          <Button variant="ghost" className="justify-start" asChild>
+                            <Link href="/dashboard/assistant">Asisten AI</Link>
+                          </Button>
+                        </>
+                      )}
                     </div>
                   </div>
                   <div className="mt-auto p-4 border-t">
@@ -89,15 +99,28 @@ export function Header() {
                   </Link>
                 ))}
                  {user && (
+                   <>
                      <Link
                         href="/dashboard"
                         className={cn(
                           "transition-colors hover:text-foreground/80",
-                          pathname.startsWith("/dashboard") ? "text-foreground" : "text-foreground/60"
+                          pathname.startsWith("/dashboard") && !pathname.startsWith("/dashboard/assistant")
+                            ? "text-foreground"
+                            : "text-foreground/60"
                         )}
                       >
                         Dashboard
                       </Link>
+                      <Link
+                        href="/dashboard/assistant"
+                        className={cn(
+                          "transition-colors hover:text-foreground/80",
+                          pathname.startsWith("/dashboard/assistant") ? "text-foreground" : "text-foreground/60"
+                        )}
+                      >
+                        Asisten AI
+                      </Link>
+                   </>
                  )}
               </nav>
             </div>
