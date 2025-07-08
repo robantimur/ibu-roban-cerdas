@@ -85,9 +85,6 @@ function ArticleCard({ article }: { article: typeof articles[0] }) {
             <CardTitle className="mb-2 text-lg">{article.title}</CardTitle>
             <CardDescription>{article.excerpt}</CardDescription>
         </CardContent>
-        <CardFooter className="p-6 pt-0">
-            <div className="text-sm text-muted-foreground">{article.author} &middot; {article.date}</div>
-        </CardFooter>
         </Card>
     </Link>
   );
