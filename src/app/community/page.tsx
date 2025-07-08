@@ -24,6 +24,7 @@ import {
 import { formatDistanceToNow } from "date-fns";
 import { id } from "date-fns/locale";
 import { Skeleton } from "@/components/ui/skeleton";
+import { cn } from "@/lib/utils";
 
 interface PostAuthor {
   id: string;
