@@ -1,8 +1,9 @@
+
 "use client";
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { Logo } from "../logo";
 import { usePathname } from "next/navigation";
@@ -35,6 +36,7 @@ export function Header() {
                   </Button>
                 </SheetTrigger>
                 <SheetContent side="left" className="pr-0">
+                  <SheetTitle className="sr-only">Menu Navigasi</SheetTitle>
                   <Logo className="mb-6" />
                   <div className="flex flex-col space-y-4">
                     {[...navLinks, ...(user ? [{ href: "/dashboard", label: "Dashboard" }] : [])].map((link) => (
@@ -52,7 +54,7 @@ export function Header() {
             </div>
             
             {/* Desktop Nav */}
-            <div className="hidden md:flex">
+            <div className="hidden md:flex items-center">
               <Logo />
               <nav className="ml-6 flex items-center space-x-6 text-sm font-medium">
                 {navLinks.map((link) => (
