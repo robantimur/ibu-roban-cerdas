@@ -9,6 +9,7 @@ import { Logo } from "../logo";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/use-auth";
+import { useState } from "react";
 
 const navLinks = [
   { href: "/articles", label: "Artikel" },
@@ -19,16 +20,26 @@ const navLinks = [
 export function Header() {
   const pathname = usePathname();
   const { user, loading, logOut } = useAuth();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleLinkClick = () => {
+    setIsMobileMenuOpen(false);
+  };
+  
+  const handleLogoutClick = () => {
+    logOut();
+    setIsMobileMenuOpen(false);
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container relative flex h-16 items-center justify-between px-4">
+      <div className="container relative grid h-16 grid-cols-[1fr_auto_1fr] items-center px-4 lg:flex lg:grid-cols-none">
         
         {/* Left Side: Desktop Nav & Mobile Menu */}
-        <div className="flex items-center">
+        <div className="flex items-center justify-start">
             {/* Mobile Hamburger */}
             <div className="lg:hidden">
-              <Sheet>
+              <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                 <SheetTrigger asChild>
                   <Button variant="ghost" size="icon">
                     <Menu className="h-8 w-8" />
@@ -44,16 +55,16 @@ export function Header() {
                     <div className="flex flex-col space-y-1 px-4">
                       {navLinks.map((link) => (
                         <Button variant="ghost" className="justify-start" asChild key={link.href}>
-                           <Link href={link.href}>{link.label}</Link>
+                           <Link href={link.href} onClick={handleLinkClick}>{link.label}</Link>
                         </Button>
                       ))}
                       {user && (
                         <>
                           <Button variant="ghost" className="justify-start" asChild>
-                            <Link href="/dashboard">Dashboard</Link>
+                            <Link href="/dashboard" onClick={handleLinkClick}>Dashboard</Link>
                           </Button>
                           <Button variant="ghost" className="justify-start" asChild>
-                            <Link href="/dashboard/assistant">Asisten AI</Link>
+                            <Link href="/dashboard/assistant" onClick={handleLinkClick}>Asisten AI</Link>
                           </Button>
                         </>
                       )}
@@ -66,14 +77,14 @@ export function Header() {
                           <div className="h-9 w-full animate-pulse rounded-md bg-muted" />
                         </div>
                      ) : user ? (
-                       <Button variant="outline" className="w-full" onClick={() => logOut()}>Keluar</Button>
+                       <Button variant="outline" className="w-full" onClick={handleLogoutClick}>Keluar</Button>
                      ) : (
                        <div className="flex flex-col gap-2">
                          <Button asChild className="w-full">
-                           <Link href="/signup">Daftar</Link>
+                           <Link href="/signup" onClick={handleLinkClick}>Daftar</Link>
                          </Button>
                          <Button variant="outline" asChild className="w-full">
-                           <Link href="/login">Masuk</Link>
+                           <Link href="/login" onClick={handleLinkClick}>Masuk</Link>
                          </Button>
                        </div>
                      )}
@@ -127,12 +138,12 @@ export function Header() {
         </div>
 
         {/* Center Logo on Mobile */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:hidden">
+        <div className="justify-self-center lg:hidden">
           <Logo />
         </div>
         
         {/* Right Side: Auth Buttons (Desktop Only) */}
-        <div className="hidden lg:flex items-center gap-2">
+        <div className="hidden lg:flex items-center justify-end gap-2">
           {loading ? (
              <div className="h-9 w-20 animate-pulse rounded-md bg-muted" />
           ) : user ? (
