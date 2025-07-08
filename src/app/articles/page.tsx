@@ -2,7 +2,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -37,13 +36,11 @@ export default function ArticlesPage() {
       </div>
       
       <Tabs defaultValue="Semua" className="w-full">
-        <div className="flex justify-center">
-            <TabsList className="mb-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5">
-            {categories.map(category => (
-                <TabsTrigger key={category} value={category}>{category}</TabsTrigger>
-            ))}
-            </TabsList>
-        </div>
+        <TabsList className="mb-8 h-auto flex-wrap">
+        {categories.map(category => (
+            <TabsTrigger key={category} value={category}>{category}</TabsTrigger>
+        ))}
+        </TabsList>
 
         <TabsContent value="Semua">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
