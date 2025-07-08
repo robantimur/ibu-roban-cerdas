@@ -8,22 +8,22 @@ import {
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Zap, Shield, Sun, Droplet, Apple, BookOpen } from "lucide-react";
+import { Apple, BookOpen, MessageSquare, Smile, Soap, Users, Zap } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 const gamificationData = {
   points: 1250,
-  level: 5,
-  nextLevelPoints: 2000,
+  level: 4,
+  nextLevelPoints: 1500,
   badges: [
-    { icon: <Zap className="w-6 h-6 text-yellow-500" />, name: "Aktivis Pagi", description: "Completed 5 daily challenges" },
-    { icon: <Shield className="w-6 h-6 text-green-500" />, name: "Ahli Gizi", description: "Read 10 nutrition articles" },
-    { icon: <Sun className="w-6 h-6 text-orange-500" />, name: "Pejuang Sanitasi", description: "Joined a community event" },
+    { icon: <Apple className="w-6 h-6 text-green-500" />, name: "Ahli Gizi", description: "Menguasai konten gizi" },
+    { icon: <Smile className="w-6 h-6 text-blue-500" />, name: "Dokter Gigi Kecil", description: "Menguasai kesehatan gigi" },
+    { icon: <Soap className="w-6 h-6 text-cyan-500" />, name: "Pakar Sanitasi", description: "Menguasai sanitasi" },
   ],
   dailyChallenges: [
-    { icon: <BookOpen className="w-4 h-4 text-primary" />, description: "Baca 1 artikel tentang gizi anak", points: 10, completed: true },
-    { icon: <Apple className="w-4 h-4 text-primary" />, description: "Bagikan resep sehat di komunitas", points: 20, completed: false },
-    { icon: <Droplet className="w-4 h-4 text-primary" />, description: "Jawab kuis tentang sanitasi", points: 15, completed: false },
+    { icon: <BookOpen className="w-4 h-4 text-primary" />, description: "Baca 1 artikel kesehatan", points: 50, completed: true },
+    { icon: <MessageSquare className="w-4 h-4 text-primary" />, description: "Tanya AI tentang kesehatan", points: 30, completed: false },
+    { icon: <Users className="w-4 h-4 text-primary" />, description: "Ikut serta dalam komunitas", points: 75, completed: false },
   ],
 };
 
@@ -98,7 +98,7 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent className="space-y-4">
             {gamificationData.dailyChallenges.map((challenge, index) => (
-              <div key={index} className="flex items-center justify-between p-3 bg-secondary/50 rounded-lg">
+              <div key={index} className="flex items-center justify-between p-3 bg-muted rounded-lg">
                 <div className="flex items-center gap-3">
                   {challenge.icon}
                   <p className="text-sm">{challenge.description}</p>
