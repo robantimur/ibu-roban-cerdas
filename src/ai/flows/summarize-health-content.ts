@@ -10,7 +10,7 @@ const SummarizeHealthContentInputSchema = z.object({
 export type SummarizeHealthContentInput = z.infer<typeof SummarizeHealthContentInputSchema>;
 
 const SummarizeHealthContentOutputSchema = z.object({
-  summary: z.string().describe('A concise summary of the health article.'),
+  summary: z.string().describe('A concise summary of the health article in Indonesian.'),
 });
 export type SummarizeHealthContentOutput = z.infer<typeof SummarizeHealthContentOutputSchema>;
 
@@ -24,7 +24,7 @@ const summarizeHealthContentPrompt = ai.definePrompt({
   name: 'summarizeHealthContentPrompt',
   input: {schema: SummarizeHealthContentInputSchema},
   output: {schema: SummarizeHealthContentOutputSchema},
-  prompt: `Summarize the following health article, focusing on the key points and recommendations:\n\n{{{articleContent}}}`,
+  prompt: `Ringkas artikel kesehatan berikut dalam Bahasa Indonesia. Fokus pada poin-poin utama dan rekomendasi praktisnya:\n\n{{{articleContent}}}`,
 });
 
 const summarizeHealthContentFlow = ai.defineFlow(
