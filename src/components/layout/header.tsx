@@ -35,19 +35,38 @@ export function Header() {
                     <span className="sr-only">Buka Menu</span>
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="left" className="pr-0">
-                  <SheetTitle className="sr-only">Menu Navigasi</SheetTitle>
-                  <Logo className="mb-6" />
-                  <div className="flex flex-col space-y-4">
-                    {[...navLinks, ...(user ? [{ href: "/dashboard", label: "Dashboard" }] : [])].map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className="text-sm font-medium"
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
+                <SheetContent side="left" className="pr-0 flex flex-col">
+                  <div>
+                    <SheetTitle className="sr-only">Menu Navigasi</SheetTitle>
+                    <div className="mb-6 pl-4">
+                      <Logo />
+                    </div>
+                    <div className="flex flex-col space-y-1 px-4">
+                      {[...navLinks, ...(user ? [{ href: "/dashboard", label: "Dashboard" }] : [])].map((link) => (
+                        <Button variant="ghost" className="justify-start" asChild key={link.href}>
+                           <Link href={link.href}>{link.label}</Link>
+                        </Button>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="mt-auto p-4 border-t">
+                     {loading ? (
+                        <div className="space-y-2">
+                          <div className="h-9 w-full animate-pulse rounded-md bg-muted" />
+                          <div className="h-9 w-full animate-pulse rounded-md bg-muted" />
+                        </div>
+                     ) : user ? (
+                       <Button variant="outline" className="w-full" onClick={() => logOut()}>Keluar</Button>
+                     ) : (
+                       <div className="flex flex-col gap-2">
+                         <Button asChild className="w-full">
+                           <Link href="/signup">Daftar</Link>
+                         </Button>
+                         <Button variant="outline" asChild className="w-full">
+                           <Link href="/login">Masuk</Link>
+                         </Button>
+                       </div>
+                     )}
                   </div>
                 </SheetContent>
               </Sheet>
@@ -89,8 +108,8 @@ export function Header() {
           <Logo />
         </div>
         
-        {/* Right Side: Auth Buttons */}
-        <div className="flex items-center gap-2">
+        {/* Right Side: Auth Buttons (Desktop Only) */}
+        <div className="hidden md:flex items-center gap-2">
           {loading ? (
              <div className="h-9 w-20 animate-pulse rounded-md bg-muted" />
           ) : user ? (
@@ -100,7 +119,7 @@ export function Header() {
               <Button variant="ghost" asChild>
                 <Link href="/login">Masuk</Link>
               </Button>
-              <Button asChild className="hidden md:inline-flex">
+              <Button asChild>
                 <Link href="/signup">Daftar</Link>
               </Button>
             </>
