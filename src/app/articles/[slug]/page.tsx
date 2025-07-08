@@ -3,6 +3,8 @@ import { articles } from "@/lib/placeholder-data";
 import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { ArticleSummary } from "@/components/article-summary";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { BookCheck } from "lucide-react";
 
 // Helper component to render text with **bold** syntax
 const FormattedText = ({ text }: { text: string }) => {
@@ -113,6 +115,22 @@ export default function ArticleDetailPage({ params }: { params: { slug: string }
 
       <ArticleSummary articleContent={articleContent} />
 
+      <div className="mt-8">
+        <Card className="bg-muted/50 border-dashed">
+            <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-xl">
+                    <BookCheck className="text-primary" />
+                    Referensi
+                </CardTitle>
+            </CardHeader>
+            <CardContent>
+                <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
+                    <li>Kementerian Kesehatan Republik Indonesia (Kemenkes RI)</li>
+                    <li>World Health Organization (WHO)</li>
+                </ul>
+            </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }
