@@ -42,7 +42,7 @@ export function FeaturesSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Semua yang Ibu Cerdas Butuhkan
           </h2>
-          <p className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
+          <p className="text-lg text-foreground/90 mt-4 max-w-2xl mx-auto">
             Dirancang khusus oleh Mahasiswa KKN Undip untuk memberdayakan para ibu di Roban Timur dengan alat dan pengetahuan kesehatan praktis.
           </p>
         </div>
