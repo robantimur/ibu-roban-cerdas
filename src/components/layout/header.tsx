@@ -92,7 +92,7 @@ export function Header() {
               <Button variant="ghost" asChild>
                 <Link href="/login">Masuk</Link>
               </Button>
-              <Button asChild>
+              <Button asChild className="hidden md:inline-flex">
                 <Link href="/signup">Daftar</Link>
               </Button>
             </>
