@@ -4,16 +4,16 @@ import { Lightbulb } from "lucide-react";
 
 export default function AssistantPage() {
   return (
-    <div className="flex flex-col h-[calc(100vh-8rem)]">
-      <div className="mb-6">
+    <div className="flex flex-col h-[calc(100svh-128px)]">
+      <div className="mb-6 shrink-0">
         <h1 className="text-3xl font-bold tracking-tight">AI Health Assistant</h1>
         <p className="text-muted-foreground">
           Tanyakan apapun seputar kesehatan ibu dan anak di Roban Timur.
         </p>
       </div>
 
-      <div className="flex-1 flex flex-col gap-6">
-        <Card className="bg-accent/50 border-accent">
+      <div className="flex flex-col gap-6 flex-1 min-h-0">
+        <Card className="bg-accent/50 border-accent shrink-0">
           <CardHeader className="flex flex-row items-center gap-4">
             <Lightbulb className="w-6 h-6 text-accent-foreground" />
             <div>
@@ -25,7 +25,7 @@ export default function AssistantPage() {
           </CardHeader>
         </Card>
         
-        <div className="flex-1 flex flex-col bg-card border rounded-lg shadow-sm">
+        <div className="flex-1 flex flex-col bg-card border rounded-lg shadow-sm min-h-0">
           <ChatPanel />
         </div>
       </div>
