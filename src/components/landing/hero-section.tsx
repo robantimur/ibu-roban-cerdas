@@ -25,12 +25,12 @@ export function HeroSection() {
           </div>
           <div>
             <Image
-              src="https://placehold.co/600x400.png"
-              alt="Happy family"
-              data-ai-hint="happy family"
+              src="https://dmc.dompetdhuafa.org/wp-content/uploads/2025/05/DMC05478-1024x576.jpg"
+              alt="Kegiatan penyuluhan kesehatan komunitas"
+              data-ai-hint="health education community"
               width={600}
               height={400}
-              className="rounded-lg shadow-2xl mx-auto"
+              className="rounded-lg shadow-2xl mx-auto object-cover aspect-video"
             />
           </div>
         </div>
