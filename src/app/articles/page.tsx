@@ -36,7 +36,7 @@ export default function ArticlesPage() {
       </div>
       
       <Tabs defaultValue="Semua" className="w-full">
-        <TabsList className="mb-8 h-auto flex-wrap">
+        <TabsList className="mb-8 h-auto flex-wrap justify-center">
         {categories.map(category => (
             <TabsTrigger key={category} value={category}>{category}</TabsTrigger>
         ))}
