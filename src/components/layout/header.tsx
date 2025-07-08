@@ -22,7 +22,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container relative flex h-16 items-center justify-between">
+      <div className="container relative flex h-16 items-center justify-between px-4">
         
         {/* Left Side: Desktop Nav & Mobile Menu */}
         <div className="flex items-center">
@@ -31,7 +31,7 @@ export function Header() {
               <Sheet>
                 <SheetTrigger asChild>
                   <Button variant="ghost" size="icon">
-                    <Menu className="h-6 w-6" />
+                    <Menu className="h-8 w-8" />
                     <span className="sr-only">Buka Menu</span>
                   </Button>
                 </SheetTrigger>
