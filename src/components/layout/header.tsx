@@ -27,7 +27,7 @@ export function Header() {
         {/* Left Side: Desktop Nav & Mobile Menu */}
         <div className="flex items-center">
             {/* Mobile Hamburger */}
-            <div className="md:hidden">
+            <div className="lg:hidden">
               <Sheet>
                 <SheetTrigger asChild>
                   <Button variant="ghost" size="icon">
@@ -83,7 +83,7 @@ export function Header() {
             </div>
             
             {/* Desktop Nav */}
-            <div className="hidden md:flex items-center">
+            <div className="hidden lg:flex items-center">
               <Logo />
               <nav className="ml-6 flex items-center space-x-6 text-sm font-medium">
                 {navLinks.map((link) => (
@@ -127,12 +127,12 @@ export function Header() {
         </div>
 
         {/* Center Logo on Mobile */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:hidden">
           <Logo />
         </div>
         
         {/* Right Side: Auth Buttons (Desktop Only) */}
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden lg:flex items-center gap-2">
           {loading ? (
              <div className="h-9 w-20 animate-pulse rounded-md bg-muted" />
           ) : user ? (
