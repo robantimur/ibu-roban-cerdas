@@ -8,7 +8,7 @@ import {
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Apple, BookOpen, MessageSquare, Smile, Soap, Users, Zap } from "lucide-react";
+import { Apple, BookOpen, MessageSquare, Smile, Droplet, Users, Zap } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 const gamificationData = {
@@ -18,7 +18,7 @@ const gamificationData = {
   badges: [
     { icon: <Apple className="w-6 h-6 text-green-500" />, name: "Ahli Gizi", description: "Menguasai konten gizi" },
     { icon: <Smile className="w-6 h-6 text-blue-500" />, name: "Dokter Gigi Kecil", description: "Menguasai kesehatan gigi" },
-    { icon: <Soap className="w-6 h-6 text-cyan-500" />, name: "Pakar Sanitasi", description: "Menguasai sanitasi" },
+    { icon: <Droplet className="w-6 h-6 text-cyan-500" />, name: "Pakar Sanitasi", description: "Menguasai sanitasi" },
   ],
   dailyChallenges: [
     { icon: <BookOpen className="w-4 h-4 text-primary" />, description: "Baca 1 artikel kesehatan", points: 50, completed: true },

@@ -51,8 +51,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const userCredential = await createUserWithEmailAndPassword(auth, email, pass);
     if (userCredential.user) {
       await updateProfile(userCredential.user, { displayName: name });
-      // Refresh user state to include display name
-      setUser({ ...userCredential.user, displayName: name });
+      // The previous implementation `{ ...userCredential.user, ... }` created a plain object,
+      // which stripped the User object of its methods and caused the registration to fail.
+      // By setting the user directly with the valid object from Firebase, the app will no longer crash.
+      setUser(userCredential.user);
     }
     return userCredential;
   };
