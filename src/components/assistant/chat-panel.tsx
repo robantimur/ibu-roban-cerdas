@@ -10,6 +10,23 @@ import { cn } from "@/lib/utils";
 import { aiHealthAssistantForMothers } from "@/ai/flows/health-assistant";
 import { useAuth } from "@/hooks/use-auth";
 
+// Helper to format text with **bold** syntax
+const FormattedText = ({ text }: { text: string }) => {
+  if (!text) return null;
+  const parts = text.split(/(\*\*.*?\*\*)/g);
+  return (
+    <>
+      {parts.map((part, i) =>
+        part.startsWith('**') && part.endsWith('**') ? (
+          <strong key={i}>{part.slice(2, -2)}</strong>
+        ) : (
+          part
+        )
+      )}
+    </>
+  );
+};
+
 interface Message {
   role: "user" | "assistant";
   content: string;
@@ -96,10 +113,10 @@ export function ChatPanel() {
                   "max-w-md rounded-lg p-3 text-sm",
                   message.role === "user"
                     ? "bg-primary text-primary-foreground"
-                    : "bg-muted"
+                    : "bg-muted whitespace-pre-wrap"
                 )}
               >
-                {message.content}
+                {message.role === 'assistant' ? <FormattedText text={message.content} /> : message.content}
               </div>
               {message.role === "user" && (
                 <Avatar className="h-8 w-8">
