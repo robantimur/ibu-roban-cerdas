@@ -35,6 +35,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const router = useRouter();
 
   useEffect(() => {
+    if (!auth) {
+      setUser(null);
+      setLoading(false);
+      return;
+    }
+
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
@@ -48,6 +54,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const signUp = async (name: string, email: string, pass: string) => {
+    if (!auth) throw new Error("Firebase is not configured. Sign up is disabled.");
+    
     const userCredential = await createUserWithEmailAndPassword(auth, email, pass);
     if (userCredential.user) {
       await updateProfile(userCredential.user, { displayName: name });
@@ -60,12 +68,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const logIn = (email: string, pass: string) => {
+    if (!auth) throw new Error("Firebase is not configured. Log in is disabled.");
     return signInWithEmailAndPassword(auth, email, pass);
   };
 
   const logOut = async () => {
     setUser(null);
-    await signOut(auth);
+    if (auth) {
+      await signOut(auth);
+    }
     router.push('/');
   };
 

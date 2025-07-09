@@ -52,6 +52,12 @@ export default function CommunityPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
+    if (!db) {
+      setPosts([]);
+      setIsLoading(false);
+      return;
+    }
+
     const q = query(collection(db, "communityPosts"), orderBy("timestamp", "desc"));
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const postsData = snapshot.docs.map((doc) => {
@@ -80,7 +86,7 @@ export default function CommunityPage() {
   }, []);
 
   const handleCreatePost = async () => {
-    if (!user || !newPostContent.trim()) return;
+    if (!user || !newPostContent.trim() || !db) return;
     setIsSubmitting(true);
     try {
       await addDoc(collection(db, "communityPosts"), {
@@ -103,7 +109,7 @@ export default function CommunityPage() {
   };
 
   const handleLikePost = async (postId: string) => {
-    if (!user) return;
+    if (!user || !db) return;
 
     const postRef = doc(db, "communityPosts", postId);
 
@@ -185,12 +191,12 @@ export default function CommunityPage() {
                   className="flex-1"
                   value={newPostContent}
                   onChange={(e) => setNewPostContent(e.target.value)}
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !db}
                 />
               </div>
               <div className="flex justify-end items-center mt-2 gap-2">
                   <Button variant="ghost" size="icon" disabled><FileImage className="h-5 w-5"/></Button>
-                  <Button onClick={handleCreatePost} disabled={!newPostContent.trim() || isSubmitting}>
+                  <Button onClick={handleCreatePost} disabled={!newPostContent.trim() || isSubmitting || !db}>
                     {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin"/>}
                     Kirim
                   </Button>
@@ -241,7 +247,7 @@ export default function CommunityPage() {
                         size="sm" 
                         className="flex items-center gap-1"
                         onClick={() => handleLikePost(post.id)}
-                        disabled={!user}
+                        disabled={!user || !db}
                       >
                           <ThumbsUp className={cn("h-4 w-4", user && post.likedBy.includes(user.uid) && "text-primary fill-primary/50")} /> {post.likes}
                       </Button>
@@ -257,7 +263,7 @@ export default function CommunityPage() {
             <Card className="p-8 text-center text-muted-foreground">
               <MessageSquare className="mx-auto h-12 w-12 mb-4"/>
               <h3 className="font-semibold text-lg">Belum ada kiriman</h3>
-              <p>Jadilah yang pertama memulai percakapan di komunitas!</p>
+              <p>{db ? 'Jadilah yang pertama memulai percakapan di komunitas!' : 'Fitur komunitas dinonaktifkan karena Firebase tidak terkonfigurasi.'}</p>
             </Card>
           )}
         </div>
